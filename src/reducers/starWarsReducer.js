@@ -6,7 +6,7 @@ import {
 const initialState = {
   characters: [],
   error: "",
-  isFetching: false
+  fetching: false
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
@@ -16,20 +16,20 @@ export const charsReducer = (state = initialState, action) => {
     case FETCH_CHARS_START:
       return {
         ...state,
-        isFetching: true
+        fetching: true
       };
     case FETCH_CHARS_SUCCESS:
       console.log(action.payload);
       return {
         ...state,
         characters: [ ...state.characters, ...action.payload],
-        isFetching: false,
+        fetching: false,
         error: false
       };
     case FETCH_CHARS_FAILURE:
       return {
         ...state,
-        isFetching: false,
+        fetching: false,
         error: action.payload
       };
     // Fill me in with the important reducers
